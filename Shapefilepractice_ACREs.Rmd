@@ -1,0 +1,61 @@
+---
+title: "apa_acre"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+###Packages to be installed for spatial analysis
+install.packages("tidyr")
+install.packages("sp")
+install.packages("spatial")
+install.packages("rgdal")
+install.packages("rgeos")
+install.packages("raster")
+install.packages("ggplot2")
+install.packages("ggmap")
+install.packages("spatstat")
+install.packages("gstat")
+install.packages("leaflet")
+install.packages("maptools")
+install.packages("magrittr")
+install.packages("readr")
+install.packages("lubridate")
+install.packages("RColorBrewer")
+install.packages("janitor")
+install.packages("knitr")
+install.packages("classInt")
+#load packages
+```{r}
+library(tidyr)
+library(sp)
+library(spatial)
+library(rgdal)
+library(rgeos)
+library(raster)
+library(ggplot2)
+library(spatstat)
+library(gstat)
+library(leaflet)
+library(maptools)
+library(magrittr)
+library(readr)
+library(lubridate)
+library(RColorBrewer)
+library(janitor)
+library(knitr)
+library(classInt)
+
+```
+
+```{r read_shapefile}
+##Create a SpatialPolygonsDataframe by reading in shapefile data
+unzip()
+
+```{r}
+##Create a SpatialPolygonsDatafram by reading in shapefile data
+apa_acre_shp <- readShapeSpatial("APAs_ACREs.shp",proj4string = CRS("+proj=longlat +datum=WGS854"))
+```
+                                                                   
