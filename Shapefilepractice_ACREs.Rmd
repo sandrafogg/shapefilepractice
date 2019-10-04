@@ -61,15 +61,16 @@ library(sf)
 #Create root based on OS
 if(Sys.info()["sysname"] == "Windows"){
   team_path_ACRE <- "G:/"
-} else {
-  team_path_ACRE <- "/Volumes/GoogleDrive/"
-}
+    } else {maricultura}
 
 #Create full file path
-ACREs_path <- paste0(team_path_ACRE, "Shared Drives/Bren GP 2020 maricultura/Data/Raw_Data/shapefiles/APAs_ACREs")
+ACREs_path <- paste0(team_path_ACRE, "Raw_Data/APAs_ACREs")
 
 #read the data
 ACREs <- read_sf(dsn = ACREs_path, layer = "APAs_ACREs")
+
+plot(ACREs)
+ACREs
 ```
 
 ```{r read_shapefile}
@@ -85,4 +86,78 @@ apa_acre_shp <- readShapeSpatial("APAs_ACREs.shp",proj4string = CRS("+proj=longl
 ```
 ```{r}
 readOGR(dsn = "H:/shapefilepractice", layer = "APAs_ACREs.shp")
+```
+
+```{r}
+#Create root based on OS
+if(Sys.info()["sysname"] == "Windows"){
+  team_path_Aero <- "G:/"
+    } else {maricultura}
+
+#Create full file path
+Aero_path <- paste0(team_path_Aero, "Raw_Data/Aeroportos")
+
+#read the data
+Aeros <- read_sf(dsn = Aero_path, layer = "Aeroportos")
+
+plot(Aeros)
+
+```
+
+
+###APAS
+```{r}
+#install.packages("sf")
+library(sf)
+
+#Create root based on OS
+if(Sys.info()["sysname"] == "Windows"){
+  team_path_ACRE <- "G:/"
+    } else {maricultura}
+
+#Create full file path
+ACREs_path <- paste0(team_path_ACRE, "Raw_Data/APAs_ACREs")
+
+#read the data
+ACREs <- read_sf(dsn = ACREs_path, layer = "APAs_ACREs")
+
+plot(ACREs)
+ACREs
+```
+
+###AEROPORTOS
+```{r}
+#Create root based on OS
+if(Sys.info()["sysname"] == "Windows"){
+  team_path_Aero <- "G:/"
+    } else {maricultura}
+
+#Create full file path
+Aero_path <- paste0(team_path_Aero, "Raw_Data/Aeroportos")
+
+#read the data
+Aeros <- read_sf(dsn = Aero_path, layer = "Aeroportos")
+
+aeros_plot <- plot(Aeros)
+
+Aeros
+
+```
+
+###GASODUTOS
+```{r}
+#Create root based on OS
+if(Sys.info()["sysname"] == "Windows"){
+  team_path_ga <- "G:/"
+    } else {maricultura}
+
+#Create full file path
+Gasodutos_path <- paste0(team_path_ga, "Raw_Data/Gasodutos")
+
+#read the data
+Gasodutos <- read_sf(dsn = Gasodutos_path, layers = "Gasodutos")
+
+Gasodutos
+
+
 ```
