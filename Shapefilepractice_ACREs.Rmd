@@ -27,8 +27,12 @@ install.packages("RColorBrewer")
 install.packages("janitor")
 install.packages("knitr")
 install.packages("classInt")
+install.packages("sf")
+
+
 #load packages
 ```{r}
+
 library(tidyr)
 library(sp)
 library(spatial)
@@ -47,15 +51,38 @@ library(RColorBrewer)
 library(janitor)
 library(knitr)
 library(classInt)
+library(sf)
 
+```
+```{r}
+#install.packages("sf")
+library(sf)
+
+#Create root based on OS
+if(Sys.info()["sysname"] == "Windows"){
+  team_path_ACRE <- "G:/"
+} else {
+  team_path_ACRE <- "/Volumes/GoogleDrive/"
+}
+
+#Create full file path
+ACREs_path <- paste0(team_path_ACRE, "Shared Drives/Bren GP 2020 maricultura/Data/Raw_Data/shapefiles/APAs_ACREs")
+
+#read the data
+ACREs <- read_sf(dsn = ACREs_path, layer = "APAs_ACREs")
 ```
 
 ```{r read_shapefile}
 ##Create a SpatialPolygonsDataframe by reading in shapefile data
-unzip()
+unzip("APAs_ACREs-2019004T182942z-001.zip")
+
+```
+
 
 ```{r}
 ##Create a SpatialPolygonsDatafram by reading in shapefile data
 apa_acre_shp <- readShapeSpatial("APAs_ACREs.shp",proj4string = CRS("+proj=longlat +datum=WGS854"))
 ```
-                                                                   
+```{r}
+readOGR(dsn = "H:/shapefilepractice", layer = "APAs_ACREs.shp")
+```
